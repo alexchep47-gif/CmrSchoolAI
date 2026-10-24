@@ -4,6 +4,7 @@ import '../../core/levels/level_model.dart';
 import '../../core/theme/app_theme.dart';
 import '../chat_tutor/chat_page.dart';
 import '../exam_generator/exam_generator_page.dart';
+import '../scan_homework/scan_homework_page.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key, required this.level});
@@ -83,7 +84,7 @@ class _HomeContent extends StatelessWidget {
         Text('Apprendre aujourd’hui', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800)),
         const SizedBox(height: 12),
         Row(children: [
-          Expanded(child: _ActionCard(icon: Icons.camera_alt_outlined, title: 'Scanner un devoir', subtitle: 'Photo et correction', color: AppTheme.orange)),
+          Expanded(child: InkWell(onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ScanHomeworkPage(level: level))), borderRadius: BorderRadius.circular(12), child: _ActionCard(icon: Icons.camera_alt_outlined, title: 'Scanner un devoir', subtitle: 'Photo et correction', color: AppTheme.orange))),
           const SizedBox(width: 12),
           Expanded(child: InkWell(onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExamGeneratorPage(level: level))), borderRadius: BorderRadius.circular(12), child: _ActionCard(icon: Icons.assignment_outlined, title: 'Créer une épreuve', subtitle: 'Exercices adaptés', color: AppTheme.mint))),
         ]),
