@@ -5,6 +5,7 @@ import '../../core/theme/app_theme.dart';
 import '../chat_tutor/chat_page.dart';
 import '../exam_generator/exam_generator_page.dart';
 import '../scan_homework/scan_homework_page.dart';
+import '../nearby_devices/nearby_devices_page.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key, required this.level});
@@ -88,6 +89,16 @@ class _HomeContent extends StatelessWidget {
           const SizedBox(width: 12),
           Expanded(child: InkWell(onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExamGeneratorPage(level: level))), borderRadius: BorderRadius.circular(12), child: _ActionCard(icon: Icons.assignment_outlined, title: 'Créer une épreuve', subtitle: 'Exercices adaptés', color: AppTheme.mint))),
         ]),
+        const SizedBox(height: 14),
+        Card(
+          child: ListTile(
+            leading: const CircleAvatar(child: Icon(Icons.devices_other_outlined)),
+            title: const Text('Partager à proximité'),
+            subtitle: const Text('Détecter et connecter un téléphone proche'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const NearbyDevicesPage())),
+          ),
+        ),
         const SizedBox(height: 22),
         Card(child: ListTile(leading: const CircleAvatar(child: Icon(Icons.flag_outlined)), title: const Text('Objectif de la semaine'), subtitle: const Text('3 leçons terminées sur 5'), trailing: const Text('60%', style: TextStyle(fontWeight: FontWeight.w800)))),
       ],

@@ -16,6 +16,7 @@ dependencies:
   crypto: ^3.0.5
   local_auth: ^2.3.0
   dio: ^5.7.0
+  flutter_nearby_connections_plus: ^1.2.2
 
 dev_dependencies:
   flutter_test:
