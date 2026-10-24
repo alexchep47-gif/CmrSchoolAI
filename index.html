@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr-CM">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>CmrSchoolAI — Intelligence artificielle pour le lycée camerounais</title>
+  <meta name="description" content="CmrSchoolAI : assistant IA de révision pour Maths, Physique et Chimie. Fiches, quiz, photo d’exercice et bot Telegram." />
+  <link rel="canonical" href="https://alexchep47-gif.github.io/CmrSchoolAI/" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #111827;
+      --line: rgba(255,255,255,0.08);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --accent: #22c55e;
+      --gold: #fbbf24;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(56,189,248,0.18), transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, rgba(34,197,94,0.12), transparent 50%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 28px 20px 48px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      margin-bottom: 36px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #041016; font-weight: 800; letter-spacing: -0.03em;
+    }
+    .brand strong { display: block; font-size: 1.05rem; }
+    .brand span { color: var(--muted); font-size: 0.85rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 12px 18px; border-radius: 999px;
+      border: 1px solid transparent; font-weight: 600; cursor: pointer;
+      text-decoration: none; color: inherit;
+    }
+    .btn.primary { background: var(--primary); color: #042033; }
+    .btn.ghost { border-color: var(--line); background: rgba(255,255,255,0.03); }
+    .btn:hover { filter: brightness(1.08); text-decoration: none; }
+    .hero {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border-radius: 24px; padding: 28px 24px; margin-bottom: 24px;
+    }
+    .eyebrow {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      background: rgba(56,189,248,0.12); color: var(--primary);
+      font-size: 0.8rem; font-weight: 600; margin-bottom: 12px;
+    }
+    h1 { margin: 0 0 12px; font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.15; }
+    .hero p { color: var(--muted); max-width: 52ch; margin: 0 0 20px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .grid {
+      display: grid; gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin: 22px 0 28px;
+    }
+    .card {
+      border: 1px solid var(--line); border-radius: 18px; padding: 18px;
+      background: var(--card);
+    }
+    .card h3 { margin: 0 0 8px; font-size: 1rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+    .icon { font-size: 1.4rem; margin-bottom: 8px; }
+    h2 { margin: 0 0 12px; font-size: 1.15rem; }
+    .links { display: grid; gap: 10px; }
+    .link-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px;
+      background: rgba(255,255,255,0.02);
+    }
+    .link-row span { color: var(--muted); font-size: 0.88rem; }
+    footer {
+      margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line);
+      color: var(--muted); font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">AI</div>
+        <div>
+          <strong>CmrSchoolAI</strong>
+          <span>CMR School · Assistant IA</span>
+        </div>
+      </div>
+      <a class="btn ghost" href="https://t.me/cmrschool_bot" target="_blank" rel="noopener">Bot Telegram</a>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">Cameroun · Lycée · Maths · Physique · Chimie</div>
+      <h1>Réussis tes examens avec l’IA</h1>
+      <p>
+        CmrSchoolAI est le volet intelligence artificielle de <strong>CMR School</strong> :
+        révision guidée, quiz, épreuves et correction d’exercices (photo) via le bot Telegram.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="https://cmr-school.online" target="_blank" rel="noopener">Ouvrir le site</a>
+        <a class="btn ghost" href="https://t.me/cmrschool_bot" target="_blank" rel="noopener">Photo d’exercice → bot</a>
+      </div>
+    </section>
+
+    <h2>Ce que propose CmrSchoolAI</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="icon">🧠</div>
+        <h3>Assistant de révision</h3>
+        <p>Explications pas à pas pour Maths, Physique et Chimie au programme camerounais.</p>
+      </article>
+      <article class="card">
+        <div class="icon">📷</div>
+        <h3>Photo d’exercice</h3>
+        <p>Envoie une photo au bot Telegram pour une correction guidée.</p>
+      </article>
+      <article class="card">
+        <div class="icon">✅</div>
+        <h3>Quiz &amp; progression</h3>
+        <p>Entraînement interactif avec XP, série de jours et suivi de niveau.</p>
+      </article>
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>Épreuves &amp; annales</h3>
+        <p>Banque d’épreuves filtrables par matière pour préparer les examens.</p>
+      </article>
+    </div>
+
+    <h2>Écosystème CMR School</h2>
+    <div class="links">
+      <div class="link-row">
+        <div>
+          <strong>Site web</strong><br />
+          <span>cmr-school.online — packs, quiz, inscription</span>
+        </div>
+        <a href="https://cmr-school.online" target="_blank" rel="noopener">Visiter</a>
+      </div>
+      <div class="link-row">
+        <div>
+          <strong>Bot IA Telegram</strong><br />
+          <span>@cmrschool_bot — photo d’exercice &amp; aide IA</span>
+        </div>
+        <a href="https://t.me/cmrschool_bot" target="_blank" rel="noopener">Ouvrir</a>
+      </div>
+      <div class="link-row">
+        <div>
+          <strong>App mobile</strong><br />
+          <span>Android Flutter — offres, FAQ, inscription WhatsApp</span>
+        </div>
+        <a href="https://github.com/alexchep47-gif/cmr-school-mobile" target="_blank" rel="noopener">Dépôt</a>
+      </div>
+      <div class="link-row">
+        <div>
+          <strong>Code source de cette page</strong><br />
+          <span>GitHub · Pages activé sur la branche main</span>
+        </div>
+        <a href="https://github.com/alexchep47-gif/CmrSchoolAI" target="_blank" rel="noopener">Repo</a>
+      </div>
+    </div>
+
+    <footer>
+      Créé par <strong>NEMMEGNE CHEPING ALEXANDRE MERVIN</strong> (Cameroun).<br />
+      Page GitHub Pages :
+      <a href="https://alexchep47-gif.github.io/CmrSchoolAI/">alexchep47-gif.github.io/CmrSchoolAI</a>
+    </footer>
+  </div>
+</body>
+</html>
