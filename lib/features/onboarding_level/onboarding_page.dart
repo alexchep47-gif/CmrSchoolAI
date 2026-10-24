@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/levels/level_model.dart';
 import '../../core/theme/app_theme.dart';
+import '../dashboard_progress/dashboard_page.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -59,7 +60,15 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   },
                 ),
                 const SizedBox(height: 28),
-                FilledButton.icon(onPressed: selected == null ? null : () {}, icon: const Icon(Icons.arrow_forward_rounded), label: const Padding(padding: EdgeInsets.symmetric(vertical: 14), child: Text('Continuer'))),
+                FilledButton.icon(
+                  onPressed: selected == null
+                      ? null
+                      : () => Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (_) => DashboardPage(level: selected!)),
+                          ),
+                  icon: const Icon(Icons.arrow_forward_rounded),
+                  label: const Padding(padding: EdgeInsets.symmetric(vertical: 14), child: Text('Continuer')),
+                ),
               ],
             ),
           ),
