@@ -15,7 +15,6 @@ dependencies:
   hive_flutter: ^1.1.0
   crypto: ^3.0.5
   local_auth: ^2.3.0
-  root_checker: ^1.0.0
   dio: ^5.7.0
 
 dev_dependencies:

@@ -3,10 +3,27 @@ name: Build CmrSchoolAI
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [main, 'v0/**']
+
+permissions:
+  contents: read
 
 jobs:
+  analyze:
+    name: Flutter analyze
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter analyze
+
   build-android:
+    name: Android APK
+    needs: analyze
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,8 +37,11 @@ jobs:
         with:
           name: app-release.apk
           path: build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 14
 
   build-ios:
+    name: iOS IPA
+    needs: analyze
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,3 +55,4 @@ jobs:
         with:
           name: app-release.ipa
           path: build/ios/ipa/*.ipa
+          retention-days: 14

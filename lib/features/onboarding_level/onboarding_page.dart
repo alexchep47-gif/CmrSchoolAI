@@ -36,7 +36,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 180, mainAxisExtent: 98, crossAxisSpacing: 12, mainAxisSpacing: 12),
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 180, mainAxisExtent: 108, crossAxisSpacing: 12, mainAxisSpacing: 12),
                   itemCount: schoolLevels.length,
                   itemBuilder: (context, index) {
                     final level = schoolLevels[index];

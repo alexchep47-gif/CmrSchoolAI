@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../core/levels/level_model.dart';
 import '../../core/theme/app_theme.dart';
+import '../chat_tutor/chat_page.dart';
+import '../exam_generator/exam_generator_page.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key, required this.level});
@@ -73,7 +75,7 @@ class _HomeContent extends StatelessWidget {
               const SizedBox(height: 6),
               const Text('Pose une question sur ton cours et reçois une explication claire, à ton niveau.', style: TextStyle(color: Colors.white70)),
               const SizedBox(height: 16),
-              FilledButton.icon(onPressed: () {}, icon: const Icon(Icons.chat_bubble_outline), label: const Text('Démarrer une conversation')),
+              FilledButton.icon(onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ChatPage(level: level))), icon: const Icon(Icons.chat_bubble_outline), label: const Text('Démarrer une conversation')),
             ]),
           ),
         ),
@@ -83,7 +85,7 @@ class _HomeContent extends StatelessWidget {
         Row(children: [
           Expanded(child: _ActionCard(icon: Icons.camera_alt_outlined, title: 'Scanner un devoir', subtitle: 'Photo et correction', color: AppTheme.orange)),
           const SizedBox(width: 12),
-          Expanded(child: _ActionCard(icon: Icons.assignment_outlined, title: 'Créer une épreuve', subtitle: 'Exercices adaptés', color: AppTheme.mint)),
+          Expanded(child: InkWell(onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExamGeneratorPage(level: level))), borderRadius: BorderRadius.circular(12), child: _ActionCard(icon: Icons.assignment_outlined, title: 'Créer une épreuve', subtitle: 'Exercices adaptés', color: AppTheme.mint))),
         ]),
         const SizedBox(height: 22),
         Card(child: ListTile(leading: const CircleAvatar(child: Icon(Icons.flag_outlined)), title: const Text('Objectif de la semaine'), subtitle: const Text('3 leçons terminées sur 5'), trailing: const Text('60%', style: TextStyle(fontWeight: FontWeight.w800)))),
@@ -100,7 +102,23 @@ class _ActionCard extends StatelessWidget {
   final Color color;
 
   @override
-  Widget build(BuildContext context) => Card(child: Padding(padding: const EdgeInsets.all(16), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [CircleAvatar(backgroundColor: color.withValues(alpha: .18), child: Icon(icon, color: color)), const SizedBox(height: 12), Text(title, style: const TextStyle(fontWeight: FontWeight.w800)), const SizedBox(height: 4), Text(subtitle, style: Theme.of(context).textTheme.bodySmall)]));
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CircleAvatar(backgroundColor: color.withValues(alpha: .18), child: Icon(icon, color: color)),
+            const SizedBox(height: 12),
+            Text(title, style: const TextStyle(fontWeight: FontWeight.w800)),
+            const SizedBox(height: 4),
+            Text(subtitle, style: Theme.of(context).textTheme.bodySmall),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 class _LibraryContent extends StatelessWidget {
